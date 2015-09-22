@@ -1,6 +1,4 @@
-# comp116-mli
-## Sept 22 2015
-### Mengtian Li
+# comp116-mli ## Sept 22 2015 ### Mengtian Li
 
 #### set1.pcap
 
