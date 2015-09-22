@@ -51,12 +51,17 @@ IMPORTANT NOTE: PLEASE DO NOT LOG ON TO THE WEBSITE OR SERVICE ASSOCIATED WITH T
 		seymore-butts: HTTP, 162.222.171.208, forum.defcon.org, 80
 IMPORTANT NOTE: PLEASE DO NOT LOG ON TO THE WEBSITE OR SERVICE ASSOCIATED WITH THE USERNAME-PASSWORD THAT YOU FOUND!
 
-17. Of all the plaintext username-password pairs that you found, how many of them are legitimate? That is, the username-password was valid, access successfully granted? Please do not count any anonymous or generic accounts.
+##### 17. Of all the plaintext username-password pairs that you found, how many of them are legitimate? That is, the username-password was valid, access successfully granted? Please do not count any anonymous or generic accounts.
+		0 is legitimate, access was forbidden by server
 
-18. Provide a listing of all IP addresses with corresponding hosts (hostname + domain name) that are in this PCAP set. Describe your methodology.
+##### 18. Provide a listing of all IP addresses with corresponding hosts (hostname + domain name) that are in this PCAP set. Describe your methodology.
+		Use the statistics bar in wireshark and find "show address resolution".
 
-General Questions
 
-19. How did you verify the successful username-password pairs?
+#### General Questions
 
-20. What advice would you give to the owners of the username-password pairs that you found so their account information would not be revealed "in-the-clear" in the future?
+##### 19. How did you verify the successful username-password pairs?
+		Follow TCP stream and check for response code to see if login was successfull or not
+
+##### 20. What advice would you give to the owners of the username-password pairs that you found so their account information would not be revealed "in-the-clear" in the future?
+		Use more secure protocol such as HTTPS or SSH, so that confidential information will not be easily analyzed.
