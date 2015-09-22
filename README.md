@@ -1,4 +1,6 @@
-# comp116-mli ## Sept 22 2015 ### Mengtian Li
+# comp116-mli 
+## Sept 22 2015 
+### Mengtian Li
 
 #### set1.pcap
 
@@ -7,7 +9,8 @@
 ##### 2. What protocol was used to transfer files from PC to server?
 		FTP
 ##### 3. Briefly describe why the protocol used to transfer the files is insecure?
-		The file transferred using FTP is insecure because all the information is in plain text which can be analyzed easily
+		The file transferred using FTP is insecure because all the 
+		information is in plain text which can be analyzed easily
 ##### 4. What is the secure alternative to the protocol used to transfer files?
 		SFTP or SSH and using SCP
 ##### 5. What is the IP address of the server?
@@ -32,7 +35,8 @@
 ##### 11. How many plaintext username-password pairs are there in this packet set? Please count any anonymous or generic accounts.
 		1
 ##### 12. Briefly describe how you found the username-password pairs.
-		Use ettercap -T -r set2.pcap | grep "PASS" to get the USER and PASS in plain text(larry@radsot.com:Z3lenzmej)
+		Use ettercap -T -r set2.pcap | grep "PASS" to get the USER and
+		PASS in plain text(larry@radsot.com:Z3lenzmej)
 ##### 13. For each of the plaintext username-password pair that you found, identify the protocol used, server IP, the corresponding domain name (e.g., google.com), and port number.
 		larry@radsot.com-Z3lenzmej: IMAP, 87.120.13.118, mail.radsot.com, 143
 		
@@ -345,7 +349,9 @@ IMPORTANT NOTE: PLEASE DO NOT LOG ON TO THE WEBSITE OR SERVICE ASSOCIATED WITH T
 #### General Questions
 
 ##### 19. How did you verify the successful username-password pairs?
-		Follow TCP stream and check for response code to see if login was successfull or not
+		Follow TCP stream and check for response code to see if login
+		 was successfull or not
 
 ##### 20. What advice would you give to the owners of the username-password pairs that you found so their account information would not be revealed "in-the-clear" in the future?
-		Use more secure protocol such as HTTPS or SSH, so that confidential information will not be easily analyzed.
+		Use more secure protocol such as HTTPS or SSH, so that
+		 confidential information will not be easily analyzed.
