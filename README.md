@@ -2,6 +2,8 @@
 ## Sept 22 2015 
 ### Mengtian Li
 
+
+
 #### set1.pcap
 
 ##### 1. How many packets are there in this set?
@@ -27,7 +29,9 @@
 		CNsAEaYUYAARuaj.jpg
 		COaqQWnU8AAwX3K.jpg
 ##### 9. Extract all the files that were transferred from PC to server. These files must be part of your submission!
-		
+
+
+
 #### set2.pcap
 
 ##### 10. How many packets are there in this set?
@@ -35,8 +39,9 @@
 ##### 11. How many plaintext username-password pairs are there in this packet set? Please count any anonymous or generic accounts.
 		1
 ##### 12. Briefly describe how you found the username-password pairs.
-		Use ettercap -T -r set2.pcap | grep "PASS" to get the USER and
-		PASS in plain text(larry@radsot.com:Z3lenzmej)
+		Use ettercap -T -r set2.pcap | grep "String_to_search" to get the USER and
+		PASS in plain text(larry@radsot.com:Z3lenzmej) I also tried "login". In Wireshark, 
+		I filtered for unsafe protocols such as POP or telnet, but nothing showed up
 ##### 13. For each of the plaintext username-password pair that you found, identify the protocol used, server IP, the corresponding domain name (e.g., google.com), and port number.
 		larry@radsot.com-Z3lenzmej: IMAP, 87.120.13.118, mail.radsot.com, 143
 		
@@ -44,6 +49,9 @@ IMPORTANT NOTE: PLEASE DO NOT LOG ON TO THE WEBSITE OR SERVICE ASSOCIATED WITH T
 
 ##### 14. Of all the plaintext username-password pairs that you found, how many of them are legitimate? That is, the username-password was valid, access successfully granted? Please do not count any anonymous or generic accounts.
 		1 is legitimate
+
+
+
 
 #### set3.pcap
 
