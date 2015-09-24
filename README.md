@@ -41,9 +41,11 @@
 ##### 12. Briefly describe how you found the username-password pairs.
 		Use ettercap -T -r set2.pcap | grep "String_to_search" to get the USER and
 		PASS in plain text(larry@radsot.com:Z3lenzmej) I also tried "login". In Wireshark, 
-		I filtered for unsafe protocols such as POP or telnet, but nothing showed up
+		I filtered for unsafe protocols such as POP or telnet, but nothing showed up.
+		For set3, since there are so many same outcomes, I piped out the result and do string 
+		analysis in the txt file. Then, I found two more user-password pairs.
 ##### 13. For each of the plaintext username-password pair that you found, identify the protocol used, server IP, the corresponding domain name (e.g., google.com), and port number.
-		larry@radsot.com-Z3lenzmej: IMAP, 87.120.13.118, mail.radsot.com, 143
+		larry@radsot.com-Z3lenzmej: IMAP, 87.120.13.118, radsot.com, 143
 		
 IMPORTANT NOTE: PLEASE DO NOT LOG ON TO THE WEBSITE OR SERVICE ASSOCIATED WITH THE USERNAME-PASSWORD THAT YOU FOUND!
 
@@ -56,13 +58,15 @@ IMPORTANT NOTE: PLEASE DO NOT LOG ON TO THE WEBSITE OR SERVICE ASSOCIATED WITH T
 #### set3.pcap
 
 ##### 15. How many plaintext username-password pairs are there in this packet set? Please count any anonymous or generic accounts.
-		1
+		3
 ##### 16. For each of the plaintext username-password pair that you found, identify the protocol used, server IP, the corresponding domain name (e.g., google.com), and port number.
-		seymore-butts: HTTP, 162.222.171.208, forum.defcon.org, 80
+		USER: seymore PASS: butts, HTTP, 162.222.171.208, defcon.org, 80
+		USER: nab01620@nifty.com PASS: Nifty->takirin1, IMAP, 210.131.4.155, nifty.com, 143
+		USER: jeff PASS: asdasdasd, HTTP, 54.191.109.23, intelctf.com,80
 IMPORTANT NOTE: PLEASE DO NOT LOG ON TO THE WEBSITE OR SERVICE ASSOCIATED WITH THE USERNAME-PASSWORD THAT YOU FOUND!
 
 ##### 17. Of all the plaintext username-password pairs that you found, how many of them are legitimate? That is, the username-password was valid, access successfully granted? Please do not count any anonymous or generic accounts.
-		0 is legitimate, access was forbidden by server
+		1 is legitimate(nab01620@nifty.com)
 
 ##### 18. Provide a listing of all IP addresses with corresponding hosts (hostname + domain name) that are in this PCAP set. Describe your methodology.
 		Use the statistics bar in wireshark and find "show address resolution".
@@ -357,7 +361,7 @@ IMPORTANT NOTE: PLEASE DO NOT LOG ON TO THE WEBSITE OR SERVICE ASSOCIATED WITH T
 #### General Questions
 
 ##### 19. How did you verify the successful username-password pairs?
-		Follow TCP stream and check for response code to see if login
+		Follow TCP stream and check for response(code, SUCCESSFUL, FAIL) to see if login
 		 was successfull or not
 
 ##### 20. What advice would you give to the owners of the username-password pairs that you found so their account information would not be revealed "in-the-clear" in the future?
