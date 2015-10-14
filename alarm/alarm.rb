@@ -55,8 +55,9 @@ def check_live_stream()
 		end
 		tcp_flag = nil
 		pkt_body = curr_pkt.payload
-		puts pkt_body
+		port = 0
 		if (curr_pkt.class.name == "PacketFu:TCPPacket")
+			port = curr_pkt.tcp_dst
 			tcp_flag = curr_pkt.tcp_header.tcp_flags.to_i
 			if tcp_flag == 0
 				#Null scan
@@ -75,26 +76,31 @@ def check_live_stream()
 				inicident_num += 1
 			end
 		end
+		if (curr_pkt.class.name == "PacketFu::UDPPacket")
+			port = curr_pkt.udp_dst
+		end
 		if pkt_body != ""
 			#credit card regex
-			credit_card_regex = ['4\d{3}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}','5\d{3}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}','6011(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}','3\d{3}(\s|-)?\d{6}(\s|-)?\d{5}','\d{4}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}']
-			if /Nmap/.match(pkt_body)
+			credit_card_regex = ['4\d{3}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}','5\d{3}(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}','6011(\s|-)?\d{4}(\s|-)?\d{4}(\s|-)?\d{4}','3\d{3}(\s|-)?\d{6}(\s|-)?\d{5}']
+			if /\x4E\x6D\x61\x70/.match(pkt_body)
 				#Other Nmap scan
-				payload = base64.encode64(pkt_body)
+				payload = pkt_body
 				puts "#{inicident_num}. ALERT: Nmap scan is detected from #{curr_pkt.ip_saddr} (#{curr_pkt.proto.last}! (#{payload})"
 				inicident_num += 1
-			elsif /Nikto/.match(pkt_body)
+			elsif /\x4E\x69\x6B\x74\x6F/.match(pkt_body)
 				#Nikto scan
-				payload = base64.encode64(pkt_body)
+				payload = pkt_body
 				puts "#{inicident_num}. ALERT: Nikto scan is detected from #{curr_pkt.ip_saddr} (#{curr_pkt.proto.last}! (#{payload})"
 				inicident_num += 1
 			end
-			credit_card_regex.each do |reg|
-				if "/#{reg}/".match(pkt_body) 
-					# credit card leak
-					payload = base64.encode64(pkt_body)
-					puts "#{inicident_num}. ALERT: Credit card leak is detected from #{curr_pkt.ip_saddr} (#{curr_pkt.proto.last}! (#{payload})"
-					inicident_num += 1
+			if port == 80
+				credit_card_regex.each do |reg|
+					pay_load = curr_pkt.payload().each_byte.map { |b| sprintf(" 0x%02X ",b) }.join
+					if /#{reg}/.match(pkt_body) 
+						# credit card leak
+						puts "#{inicident_num}. ALERT: Credit card leak is detected from #{curr_pkt.ip_saddr} (#{curr_pkt.proto.last}! (#{payload})"
+						inicident_num += 1
+					end
 				end
 			end
 		end
