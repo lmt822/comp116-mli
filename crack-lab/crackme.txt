@@ -1,0 +1,15 @@
+edgar:$1$skoKatkR$D0ARQxEV5FyrCrceMlTAH/:1001:1001:,,,:/home/edgar:/bin/bash
+brodgers:$1$OFqqKDTV$NPSgDw3.7tl4kT5N5IXiE1:1002:1002:,,,:/home/brodgers:/bin/bash
+rlew:$1$50SonRBX$mvmoBzxIbp8XVT/sturXw1:1003:1003:,,,:/home/rlew:/bin/bash
+paris:$1$I6X8Ttp7$wmSb2BpzGXSb2mhspVmVJ.:1004:1004:,,,:/home/paris:/bin/bash
+jayhall:$1$p3gXcYBI$JrVZvPVmvNByfri7.gObq.:1005:1005:,,,:/home/jayhall:/bin/bash
+developer:$1$gcURjI8A$ihfFkXZtAWr2G5pDgREmt/:1006:1006:,,,:/home/developer:/bin/bash
+adulterer:$1$ySeXPnab$wZNfvVa/m3WLCWPsKf8dH/:1007:1007:,,,:/home/adulterer:/bin/bash
+leo:$1$e3VNywMJ$4Cl.s9PdRZVAwv0mG4ari.:1008:1008:,,,:/home/leo:/bin/bash
+dugsong:$1$wpJhLE6s$8ZmA8IBhgdpaKyv92pebr.:1009:1009:,,,:/home/dugsong:/bin/bash
+woody:$1$vQNnRdRf$SAKNGkRQ5d3hg4Qtp9h1p0:1010:1010:,,,:/home/woody:/bin/bash
+dino:$1$1OxTz/AR$unbRG6J2bCYlvLBEtNVUm0:1011:1011:,,,:/home/dino:/bin/bash
+liza:$1$koky3ntz$4f8hHqU/deE4hHxNtCmQi0:1012:1012:,,,:/home/liza:/bin/bash
+oracle:$1$/QYgPmnx$kDX25Ovf4rS1jJ2RyI7qS1:1013:1013:,,,:/home/oracle:/bin/bash
+kent:$1$NNoMvBCB$gNVc5UvtAhJq6Rt1yrp2Q1:1014:1014:,,,:/home/kent:/bin/bash
+ballerwayne:$1$aza2D4Pb$TjmmlDNDj1DmSzeLYQH1h/:1015:1015:,,,:/home/ballerwayne:/bin/bash
