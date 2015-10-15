@@ -58,18 +58,18 @@ def check_live_stream()
 		port = 0
 		if (curr_pkt.class.name == "PacketFu:TCPPacket")
 			port = curr_pkt.tcp_dst
-			tcp_flag = curr_pkt.tcp_header.tcp_flags.to_i
-			if tcp_flag == 0
+			tcp_flag = curr_pkt.tcp_flags
+			if tcp_flag.ack == 0 and tcp_flag.fin == 0 and tcp_flag.psh == 0 and tcp_flag.rst == 0 and tcp_flag.syn == 0 and tcp_flag.urg == 0
 				#Null scan
 				payload = pkt_body
 				puts "#{inicident_num}. ALERT: NULL scan is detected from #{curr_pkt.ip_header.ip_saddr} (#{curr_pkt.proto.last} (#{payload})!"
 				inicident_num += 1
-			elsif tcp_flag == 1
+			elsif tcp_flag.ack == 0 and tcp_flag.fin == 1 and tcp_flag.psh == 0 and tcp_flag.rst == 0 and tcp_flag.syn == 0 and tcp_flag.urg == 0
 				#FIN scan
 				payload = pkt_body
 				puts "#{inicident_num}. ALERT: FIN scan is detected from #{curr_pkt.ip_saddr} (#{curr_pkt.proto.last} (#{payload})!"
 				inicident_num += 1
-			elsif tcp_flag == 41
+			elsif tcp_flag.fin == 1 and tcp_flag.psh == 1 and tcp_flag.urg == 1
 				#XSS scan
 				payload = pkt_body
 				puts "#{inicident_num}. ALERT: Xmas scan is detected from #{curr_pkt.ip_saddr} (#{curr_pkt.proto.last} (#{payload})!"
