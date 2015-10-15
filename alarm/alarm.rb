@@ -56,7 +56,7 @@ def check_live_stream()
 		tcp_flag = nil
 		pkt_body = curr_pkt.payload
 		port = 0
-		if (curr_pkt.class == "PacketFu::TCPPacket")
+		if (curr_pkt.class.name == "PacketFu::TCPPacket")
 			port = curr_pkt.tcp_dst
 			tcp_flag = curr_pkt.tcp_flags
 			if tcp_flag.ack == 0 and tcp_flag.fin == 0 and tcp_flag.psh == 0 and tcp_flag.rst == 0 and tcp_flag.syn == 0 and tcp_flag.urg == 0
